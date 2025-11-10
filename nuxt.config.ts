@@ -43,6 +43,15 @@ export default defineNuxtConfig({
       },
     },
   },
+  // Runtime 配置
+  runtimeConfig: {
+    // 私有配置（仅在服务器端可用）
+    // 公共配置（在客户端和服务器端都可用）
+    public: {
+      apiBase: process.env.API_BASE_URL || "https://api.example.com",
+      apiTimeout: 10000, // 请求超时时间（毫秒）
+    },
+  },
   // routeRules: {
   //   "/ddr_status/**": { ssr: true },
   //   "/blog/**": { swr: true },
