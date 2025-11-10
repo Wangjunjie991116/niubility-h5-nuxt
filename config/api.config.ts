@@ -1,9 +1,4 @@
 /**
- * API 接口配置
- * 域名和路径分开维护，支持通过 API.[域名].[路径简称] 的方式调用
- */
-
-/**
  * 域名环境配置
  */
 interface HostConfig {
@@ -31,7 +26,6 @@ const API_HOSTS = {
 /**
  * API 路径配置
  * 按域名分组，每个域名下包含多个路径
- * 路径不包含 query 参数，query 参数在调用时动态传入
  */
 const API_PATHS = {
 	/** Bing 域名下的路径 */
@@ -77,20 +71,6 @@ function getApiUrl(
 
 	return `${hostConfig.prod}${path}${queryString}`;
 }
-
-/**
- * API 路径对象（不包含 query 参数）
- * 使用方式：API.BING.IMAGE_ARCHIVE 获取路径字符串
- */
-export const API_PATHS_EXPORT = new Proxy({} as Record<keyof typeof API_HOSTS, Record<string, string>>, {
-	get(_target, hostKey: keyof typeof API_HOSTS) {
-		const paths = API_PATHS[hostKey];
-		if (!paths) {
-			throw new Error(`API host not found: ${String(hostKey)}`);
-		}
-		return paths;
-	},
-});
 
 /**
  * API URL 生成函数
