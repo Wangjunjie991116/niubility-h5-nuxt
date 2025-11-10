@@ -4,7 +4,6 @@ import { defineNuxtPlugin } from "#app";
 import en from "~/locales/en.json";
 import zh from "~/locales/zh.json";
 
-// eslint-disable-next-line import/no-mutable-exports
 export let t: (v: string) => string;
 
 export default defineNuxtPlugin(({ vueApp }) => {

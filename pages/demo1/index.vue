@@ -10,8 +10,6 @@ console.log("test1");
 
 <style lang="less" scoped>
 .demo-container {
-  padding: 20px;
-
   .title {
     color: #333;
     font-size: 24px;
