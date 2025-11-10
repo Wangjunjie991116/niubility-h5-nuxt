@@ -13,9 +13,16 @@ const getDefaultOptions = () => ({
 	headers: {
 		'Content-Type': 'application/json',
 	},
+	onRequest(config: any) {
+		console.info(JSON.stringify(config), 'config');
+	},
 	// 错误处理
 	onRequestError({ error: err }: { error: any }) {
 		console.error('[useHttp] 请求错误:', err);
+	},
+	onResponse(res: any) {
+		console.info(JSON.stringify(res), 'res');
+		return res;
 	},
 	onResponseError({ response }: { response: any }) {
 		console.error('[useHttp] 响应错误:', response);
@@ -42,7 +49,9 @@ export function useGet<T = any>(
 			...defaultOptions.headers,
 			...(options?.headers || {}),
 		},
+		onRequest: options?.onRequest || defaultOptions.onRequest,
 		onRequestError: options?.onRequestError || defaultOptions.onRequestError,
+		onResponse: options?.onResponse || defaultOptions.onResponse,
 		onResponseError: options?.onResponseError || defaultOptions.onResponseError,
 	};
 
@@ -72,7 +81,9 @@ export function usePost<T = any>(
 			...defaultOptions.headers,
 			...(options?.headers || {}),
 		},
+		onRequest: options?.onRequest || defaultOptions.onRequest,
 		onRequestError: options?.onRequestError || defaultOptions.onRequestError,
+		onResponse: options?.onResponse || defaultOptions.onResponse,
 		onResponseError: options?.onResponseError || defaultOptions.onResponseError,
 	};
 
@@ -102,7 +113,9 @@ export function usePut<T = any>(
 			...defaultOptions.headers,
 			...(options?.headers || {}),
 		},
+		onRequest: options?.onRequest || defaultOptions.onRequest,
 		onRequestError: options?.onRequestError || defaultOptions.onRequestError,
+		onResponse: options?.onResponse || defaultOptions.onResponse,
 		onResponseError: options?.onResponseError || defaultOptions.onResponseError,
 	};
 
@@ -132,7 +145,9 @@ export function usePatch<T = any>(
 			...defaultOptions.headers,
 			...(options?.headers || {}),
 		},
+		onRequest: options?.onRequest || defaultOptions.onRequest,
 		onRequestError: options?.onRequestError || defaultOptions.onRequestError,
+		onResponse: options?.onResponse || defaultOptions.onResponse,
 		onResponseError: options?.onResponseError || defaultOptions.onResponseError,
 	};
 
@@ -159,7 +174,9 @@ export function useDelete<T = any>(
 			...defaultOptions.headers,
 			...(options?.headers || {}),
 		},
+		onRequest: options?.onRequest || defaultOptions.onRequest,
 		onRequestError: options?.onRequestError || defaultOptions.onRequestError,
+		onResponse: options?.onResponse || defaultOptions.onResponse,
 		onResponseError: options?.onResponseError || defaultOptions.onResponseError,
 	};
 

@@ -1,13 +1,9 @@
 <script setup lang="ts">
 // demo1: 使用服务端渲染（SSR）
-// 使用封装的 useGet Hook 和 API 配置
 import { API } from '~/config/api.config';
 
-// 使用 useGet 发起 GET 请求，支持 SSR
-// 设置固定的 key，让服务端和客户端使用相同的缓存 key，避免重复请求
 const { data, error, pending, refresh } = await useGet(() => API.BING.IMAGE_ARCHIVE({ format: 'js', n: 5 }), {
-	server: true,
-	key: 'bing-image-archive',
+	key: 'page-demo1-api-bing-image-archive',
 });
 
 const jump = () => {

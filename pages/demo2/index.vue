@@ -1,10 +1,8 @@
 <script setup lang="ts">
 // demo2: 使用客户端渲染（CSR）
-// 使用封装的 useGetClient Hook 和 API 配置
 import { API } from '~/config/api.config';
 
 // 使用 useGetClient 发起 GET 请求，仅在客户端执行（CSR 模式）
-// API.BING.IMAGE_ARCHIVE({ format: 'js', n: 5 }) 会自动根据环境生成正确的 URL
 const { data, pending, error, refresh } = await useGetClient(API.BING.IMAGE_ARCHIVE({ format: 'js', n: 5 }));
 </script>
 
