@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+console.log("test1");
+</script>
 <template>
   <div class="demo-container">
     <h1 class="title">demo1___i18n___:{{ $t("key") }}</h1>
