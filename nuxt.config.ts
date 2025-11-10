@@ -9,9 +9,9 @@ export default defineNuxtConfig({
       viewport:
         "width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1",
       // 配置标题
-      title: "首页",
+      title: "home",
       // 配置元信息
-      meta: [{ name: "description", content: "首页" }],
+      meta: [{ name: "description", content: "home" }],
     },
   },
   // 引入模块
@@ -20,6 +20,8 @@ export default defineNuxtConfig({
     "@nuxt/eslint", // nuxt3 推荐 eslint 规则
     "@nuxt/scripts", // nuxt3 引入三方库 适配包
     "@vant/nuxt", // vant4 适配 nuxt3 工具包, https://github.com/vant-ui/vant-nuxt
+    "@pinia/nuxt", // pinia 适配 nuxt3
+    "@vueuse/nuxt", // vueuse 适配 nuxt3
   ],
   devtools: { enabled: true },
   // 全局引入样式文件
